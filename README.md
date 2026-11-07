@@ -64,5 +64,4 @@ acl_checker.py      the tool
 network/            topology and intended policy
 configs/            correct and buggy ACL configurations
 tests/              unit tests (12)
-LEARNING_GUIDE.md   walkthrough and exercises
 ```
