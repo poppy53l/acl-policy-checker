@@ -1,0 +1,122 @@
+{
+  "description": "Planted bug: the permit for staff -> db-server MySQL was forgotten.",
+  "acls": {
+    "STAFF_IN": [
+      {
+        "action": "permit",
+        "protocol": "tcp",
+        "src": "192.168.10.0/24",
+        "dst": "192.168.30.0/24",
+        "dst_port": 80
+      },
+      {
+        "action": "permit",
+        "protocol": "tcp",
+        "src": "192.168.10.0/24",
+        "dst": "192.168.30.0/24",
+        "dst_port": 443
+      },
+      {
+        "action": "permit",
+        "protocol": "tcp",
+        "src": "192.168.10.0/24",
+        "dst": "192.168.30.0/24",
+        "dst_port": 22
+      },
+      {
+        "action": "permit",
+        "protocol": "icmp",
+        "src": "192.168.10.0/24",
+        "dst": "192.168.30.0/24"
+      },
+      {
+        "action": "permit",
+        "protocol": "icmp",
+        "src": "192.168.10.0/24",
+        "dst": "192.168.40.0/24"
+      },
+      {
+        "action": "permit",
+        "protocol": "tcp",
+        "src": "192.168.10.0/24",
+        "dst": "203.0.113.0/24",
+        "dst_port": 80
+      },
+      {
+        "action": "permit",
+        "protocol": "tcp",
+        "src": "192.168.10.0/24",
+        "dst": "203.0.113.0/24",
+        "dst_port": 443
+      }
+    ],
+    "GUEST_IN": [
+      {
+        "action": "permit",
+        "protocol": "tcp",
+        "src": "192.168.20.0/24",
+        "dst": "203.0.113.0/24",
+        "dst_port": 80
+      },
+      {
+        "action": "permit",
+        "protocol": "tcp",
+        "src": "192.168.20.0/24",
+        "dst": "203.0.113.0/24",
+        "dst_port": 443
+      }
+    ],
+    "WEB_IN": [
+      {
+        "action": "permit",
+        "protocol": "tcp",
+        "src": "192.168.30.0/24",
+        "dst": "192.168.40.0/24",
+        "dst_port": 3306
+      }
+    ],
+    "DB_IN": [
+      {
+        "action": "deny",
+        "protocol": "ip",
+        "src": "any",
+        "dst": "any"
+      }
+    ],
+    "INTERNET_IN": [
+      {
+        "action": "deny",
+        "protocol": "ip",
+        "src": "any",
+        "dst": "any"
+      }
+    ]
+  },
+  "bindings": [
+    {
+      "interface": "Gi0/0",
+      "direction": "in",
+      "acl": "STAFF_IN"
+    },
+    {
+      "interface": "Gi0/1",
+      "direction": "in",
+      "acl": "GUEST_IN"
+    },
+    {
+      "interface": "Gi0/2",
+      "direction": "in",
+      "acl": "WEB_IN"
+    },
+    {
+      "interface": "Gi0/3",
+      "direction": "in",
+      "acl": "DB_IN"
+    },
+    {
+      "interface": "Gi0/4",
+      "direction": "in",
+      "acl": "INTERNET_IN"
+    }
+  ]
+}
