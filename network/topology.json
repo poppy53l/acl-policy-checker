@@ -1,0 +1,17 @@
+{
+  "description": "One router, five subnets, one host per subnet.",
+  "interfaces": {
+    "Gi0/0": "192.168.10.1/24",
+    "Gi0/1": "192.168.20.1/24",
+    "Gi0/2": "192.168.30.1/24",
+    "Gi0/3": "192.168.40.1/24",
+    "Gi0/4": "203.0.113.1/24"
+  },
+  "hosts": {
+    "staff-pc": "192.168.10.10",
+    "guest-laptop": "192.168.20.10",
+    "web-server": "192.168.30.10",
+    "db-server": "192.168.40.10",
+    "internet-host": "203.0.113.10"
+  }
+}

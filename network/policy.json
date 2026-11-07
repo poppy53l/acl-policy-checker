@@ -1,0 +1,10 @@
+{
+  "description": "Intended policy, written in plain terms. First match wins; anything not listed is denied.",
+  "rules": [
+    {"src": "staff-pc",     "dst": "web-server",    "services": ["http", "https", "ssh", "icmp"], "action": "permit"},
+    {"src": "staff-pc",     "dst": "db-server",     "services": ["mysql", "icmp"],                "action": "permit"},
+    {"src": "staff-pc",     "dst": "internet-host", "services": ["http", "https"],                "action": "permit"},
+    {"src": "guest-laptop", "dst": "internet-host", "services": ["http", "https"],                "action": "permit"},
+    {"src": "web-server",   "dst": "db-server",     "services": ["mysql"],                        "action": "permit"}
+  ]
+}
